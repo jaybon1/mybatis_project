@@ -1,0 +1,34 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    #    url: jdbc:h2:~/test
+    # url: jdbc:h2:mem:testdb;MODE=MySQL;DB_CLOSE_DELAY=-1
+    # driverClassName: org.h2.Driver
+    # username: sa
+    # password:
+    url: jdbc:mysql://temp2.ci0hgmumfe3p.ap-northeast-2.rds.amazonaws.com:3306/todo?characterEncoding=utf-8&serverTimezone=Asia/Seoul
+    driverClassName: org.mariadb.jdbc.Driver
+    username: root
+    password: green123
+#  h2:
+#    console:
+#      enabled: true
+#      path: /h2
+#  sql:
+#    init:
+#      schemaLocations: classpath:h2/schema.sql
+#      dataLocations: classpath:h2/data.sql
+#      mode: always
+
+server:
+  servlet:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+  port: 80
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
