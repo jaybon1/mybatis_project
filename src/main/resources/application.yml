@@ -7,7 +7,7 @@ spring:
     # driverClassName: org.h2.Driver
     # username: sa
     # password:
-    url: jdbc:mysql://주소넣는곳:3306/temp?characterEncoding=utf-8&serverTimezone=Asia/Seoul
+    url: jdbc:mariadb://주소넣는곳:3306/temp?characterEncoding=utf-8&serverTimezone=Asia/Seoul
     driverClassName: org.mariadb.jdbc.Driver
     username: root
     password: green123

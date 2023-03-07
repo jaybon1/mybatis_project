@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,6 +20,20 @@ import java.time.LocalDateTime;
 public class MyBatisTodoApiService {
 
     private final MyBatisTodoRepository myBatisTodoRepository;
+
+
+    public HttpEntity<?> select(String deleteYn) {
+        return ResponseEntity
+                .ok()
+                .body(ResDTO.builder()
+                        .code(0)
+                        .message("조회에 성공하였습니다.")
+                        .data(myBatisTodoRepository.findByDeleteYn(deleteYn)
+                                .stream()
+                                .map(TodoDTO.ResBasic::fromEntity)
+                                .collect(Collectors.toList()))
+                        .build());
+    }
 
     @Transactional
     public HttpEntity<?> insert(TodoDTO.ReqBasic reqDto) {

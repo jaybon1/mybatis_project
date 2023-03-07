@@ -15,6 +15,11 @@ public class MyBatisTodoApiController {
 
     private final MyBatisTodoApiService myBatisTodoApiService;
 
+    @GetMapping("/todoList")
+    public HttpEntity<?> select() {
+        return myBatisTodoApiService.select("N");
+    }
+
     @PostMapping("/todoList")
     public HttpEntity<?> insert(@RequestBody TodoDTO.ReqBasic reqDto) {
         log.info(reqDto.getContent() + "를 등록합니다.");
